@@ -1,6 +1,11 @@
 package Maven.Maven_epam_hometask1;
 import java.util.*;
-class Chocolate
+interface Gift
+{
+	public int getWeight();
+	public int getPrice();
+}
+class Chocolate implements Gift
 {
 	int weight=0;
 	int price=0;
@@ -18,7 +23,7 @@ class Chocolate
 		return this.price;
 	}
 }
-class Sweet
+class Sweet implements Gift
 {
 	int weight=0;
 	int price=0;
@@ -26,6 +31,21 @@ class Sweet
 	{
 		this.weight=weight;
 		this.price=price;
+	}
+	public int getWeight()
+	{
+		return this.weight;
+	}
+	public int getPrice()
+	{
+		return this.price;
+	}
+}
+class Gulabjamun extends Sweet
+{
+	GulabJamun(int weight,int price)
+	{
+		super(this.weight,this.price);
 	}
 	public int getWeight()
 	{
@@ -47,6 +67,7 @@ class Sweet
 	static HashMap<String,Integer> nameToPrice = new HashMap<String,Integer>();
 	public static void main(String args[])
 	{
+		Gulabjamun g = new Gulabjamun(10,10);
 		enterChocolates();
 		enterSweets();
 		System.out.println("Total weight of gift : "+calculateWeight());
@@ -181,4 +202,3 @@ class Sweet
 		}
 	}
 }
-
